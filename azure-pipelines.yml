@@ -11,8 +11,8 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '79058930-b126-4f78-805e-a070e1dbfcb5'
-  imageRepository: 'sukumarrajucontainersworld'
-  containerRegistry: 'mycontainerregistrycol.azurecr.io'
+  imageRepository: 'containersworld'
+  containerRegistry: 'kennasecurity.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
 
@@ -28,6 +28,7 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
+    - script: echo FROM quay.io/kennasecurity/ruby:latest > $(dockerfilePath)
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:

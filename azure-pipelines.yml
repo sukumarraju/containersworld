@@ -11,7 +11,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '79058930-b126-4f78-805e-a070e1dbfcb5'
-  imageRepository: 'containersworld'
+  imageRepository: 'kennasecurity/toolkit'
   containerRegistry: 'kennasecurity.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'

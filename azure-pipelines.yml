@@ -10,8 +10,8 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '79058930-b126-4f78-805e-a070e1dbfcb5'
-  imageRepository: 'kennasecurity/toolkit'
+  dockerRegistryServiceConnection: '23d85e14-2624-426c-a134-4cdc833ed769'
+  imageRepository: 'simage'
   containerRegistry: 'kennasecurity.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
@@ -35,6 +35,6 @@ stages:
         command: buildAndPush
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
-        containerRegistry: $(containerRegistry)
+        containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
